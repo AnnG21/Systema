@@ -1,0 +1,68 @@
+unit UnitBD;
+
+interface
+
+uses
+  SysUtils, Classes, DB, ADODB, DBTables;
+
+type
+  TDataBD = class(TDataModule)
+    ADOKanctovar: TADOConnection;
+    ADOSotrudniki: TADOTable;
+    DataSotrudniki: TDataSource;
+    ADOSotrudnikiId_sot: TAutoIncField;
+    ADOSotrudnikiFam: TStringField;
+    ADOSotrudnikiName: TStringField;
+    ADOSotrudnikiOtch: TStringField;
+    ADOSotrudnikiAdres: TStringField;
+    ADOSotrudnikiTelephone: TStringField;
+    ADOSotrudnikiEmail: TStringField;
+    ADODolzhnosti: TADOTable;
+    DataDolzhnosti: TDataSource;
+    ADODolzhnostiId_dol: TAutoIncField;
+    ADODolzhnostiDolzhnosti: TStringField;
+    ADODolzhnostiId_sot: TIntegerField;
+    ADOPostavshiki: TADOTable;
+    DataPostavshiki: TDataSource;
+    ADOPostavshikiId_postav: TAutoIncField;
+    ADOPostavshikiFam: TStringField;
+    ADOPostavshikiName: TStringField;
+    ADOPostavshikiOtch: TStringField;
+    ADOPostavshikiAdres: TStringField;
+    ADOPostavshikiTelephone: TStringField;
+    ADOPostavka: TADOTable;
+    DataPostavka: TDataSource;
+    ADOPostavkaId_post: TAutoIncField;
+    ADOPostavkaData_post: TWideStringField;
+    ADOPostavkaKolvo_post: TIntegerField;
+    ADOPostavkaSumma_post: TFloatField;
+    ADOPostavkaId_tov: TIntegerField;
+    ADOPostavkaId_postav: TIntegerField;
+    ADOTovar: TADOTable;
+    DataTovar: TDataSource;
+    ADOTovarId_tov: TAutoIncField;
+    ADOTovarName: TStringField;
+    ADOTovarPrice: TStringField;
+    DataQueryVydacha: TDataSource;
+    ADOVydacha: TADOTable;
+    DataVydacha: TDataSource;
+    ADOVydachaId_vyd: TAutoIncField;
+    ADOVydachaData_vyd: TWideStringField;
+    ADOVydachaKolvo_vyd: TIntegerField;
+    ADOVydachaId_sot: TIntegerField;
+    ADOVydachaId_tov: TIntegerField;
+    ADOQueryVydacha: TADOQuery;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataBD: TDataBD;
+
+implementation
+
+{$R *.dfm}
+
+end.

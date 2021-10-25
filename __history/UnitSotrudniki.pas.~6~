@@ -1,0 +1,38 @@
+unit UnitSotrudniki;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, StdCtrls, ExtCtrls, DBCtrls, Mask, frxClass, frxDBSet;
+
+type
+  TFormSotrudniki = class(TForm)
+    DBGrid1: TDBGrid;
+    DBNavigator1: TDBNavigator;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Button5: TButton;
+    Button6: TButton;
+    frxSotrudniki: TfrxDBDataset;
+    frxreportSotrudniki: TfrxReport;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormSotrudniki: TFormSotrudniki;
+
+implementation
+
+uses UnitBD;
+
+{$R *.dfm}
+
+end.

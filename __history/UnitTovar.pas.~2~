@@ -1,0 +1,46 @@
+unit UnitTovar;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, frxClass, frxDBSet, StdCtrls, ExtCtrls, DBCtrls, Grids, DBGrids;
+
+type
+  TFormTovar = class(TForm)
+    Label1: TLabel;
+    DBGrid1: TDBGrid;
+    DBNavigator1: TDBNavigator;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Edit1: TEdit;
+    Button5: TButton;
+    Button6: TButton;
+    frxTovar: TfrxDBDataset;
+    frxreportTovar: TfrxReport;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormTovar: TFormTovar;
+
+implementation
+
+uses UnitBD;
+
+{$R *.dfm}
+
+procedure TFormTovar.Button1Click(Sender: TObject);
+begin
+DataBD.ADOSotrudniki.Append;
+Application.CreateForm(TFormTovar1, FormTovar1);
+
+end;
+
+end.

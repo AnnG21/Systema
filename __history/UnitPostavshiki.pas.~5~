@@ -1,0 +1,56 @@
+unit UnitPostavshiki;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, frxClass, frxDBSet, StdCtrls, ExtCtrls, DBCtrls, Grids, DBGrids;
+
+type
+  TForm1 = class(TForm)
+    DBGrid1: TDBGrid;
+    DBNavigator1: TDBNavigator;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Button5: TButton;
+    Button6: TButton;
+    frxPostavshiki: TfrxDBDataset;
+    frxreportPostavshiki: TfrxReport;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+uses UnitBD;
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+DataBD.ADOSotrudniki.Append;
+Application.CreateForm(TFormPostavshiki1, FormPostavshiki1);
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+//Если нет записи для удаления - Delete выдает ошибку
+  //Проверим наличие такой записи через eof
+  If DataBD.ADOPostavshiki.Eof Then Abort;
+  If messagebox(0,'Вы действительно хотите удалить запись?','Запрос',33)=1
+    then  DataBD.ADOPostavshiki.delete;
+
+end;
+
+end.
